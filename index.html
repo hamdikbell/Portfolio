@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Ikbel Hamdi · Data Science & IA">
+<meta property="og:description" content="Étudiante ingénieure en Data Science & IA à l'ESPRIT. Projets en machine learning, vision par ordinateur et IA générative.">
+<meta property="og:image" content="img/avatar.jpg">
+<meta property="og:type" content="profile">
+<link rel="icon" href="img/avatar.jpg">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Ikbel Hamdi</title>
+
+<meta content="Ikbel Hamdi, étudiante ingénieure en Data Science &amp; IA à l'ESPRIT. Machine learning, vision par ordinateur, IA générative, applications web et mobiles." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+/* Layout: single column; hero = name left, photo framed as a detection box right; projects as cards with screenshot galleries and real metrics */
+:root{
+  --bg:#FFF7F9; --surface:#FFFFFF; --fg:#2B1621; --muted:#7A5F6B; --line:#F1DDE4;
+  --accent:#C2457A; --pink:#F8C6D7; --pink-soft:#FDEAF0; --box:#E8649A; --box-ink:#FFFFFF;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1B1117; --surface:#25171F; --fg:#FBEAF0; --muted:#C4A5B2; --line:#3B2631;
+  --accent:#F6A9C4; --pink:#6E3550; --pink-soft:#33202A; --box:#F6A9C4; --box-ink:#2B1621; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1B1117; --surface:#25171F; --fg:#FBEAF0; --muted:#C4A5B2; --line:#3B2631;
+  --accent:#F6A9C4; --pink:#6E3550; --pink-soft:#33202A; --box:#F6A9C4; --box-ink:#2B1621; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1160px;margin:0 auto;position:relative}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));
+  padding-inline:max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.logo{font-family:var(--mono);font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--accent)}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover,.nav ul a.active{color:var(--fg)}
+.theme-btn{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;width:36px;height:36px;cursor:pointer;display:grid;place-items:center}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav ul{margin-right:8px!important}
+.lang-btn{font-family:var(--mono);font-weight:600;font-size:12.5px;letter-spacing:.04em;background:var(--surface);border:1px solid var(--line);color:var(--fg);border-radius:999px;height:36px;padding:0 14px;cursor:pointer;transition:border-color .2s,background .2s}
+.lang-btn:hover{border-color:var(--accent);background:var(--pink-soft)}
+.made{font-family:var(--body);font-size:14px;color:var(--muted)}
+.made .heart{color:#E0245E;font-size:16px;display:inline-block;animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;padding-block:56px 72px}
+#field{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.6}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--box);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--box) 60%,transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(48px,8.5vw,104px);line-height:.92;letter-spacing:-.035em;margin:22px 0 18px;text-wrap:balance}
+h1 .last{color:var(--accent)}
+.role{font-family:var(--mono);font-size:clamp(14px,1.8vw,17px);color:var(--muted);min-height:1.6em}
+.role b{color:var(--fg);font-weight:600}
+.caret{display:inline-block;width:9px;height:1.1em;vertical-align:-3px;background:var(--box);margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{max-width:58ch;font-size:17px;margin:22px 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+.det{position:relative;justify-self:center;width:min(100%,380px);margin:0}
+.det::before{content:"";position:absolute;inset:-18px -18px 30px 18px;background:var(--pink);border-radius:10px;z-index:-1;transform:rotate(3deg)}
+.det .frame{position:relative;border-radius:6px;overflow:hidden}
+@keyframes float{50%{transform:translateY(-8px)}}
+.det img{display:block;width:100%;aspect-ratio:560/643;object-fit:cover}
+.det .real{position:absolute;inset:0;height:100%;clip-path:circle(0% at var(--x,50%) var(--y,40%));transition:clip-path .7s cubic-bezier(.2,.8,.2,1)}
+.det.show .real{clip-path:circle(150% at var(--x,50%) var(--y,40%))}
+.det .swap{font-family:var(--mono);font-size:11.5px;color:var(--accent);background:none;border:0;padding:0;cursor:pointer}
+.det .swap:hover{text-decoration:underline}
+.det .bbox{position:absolute;left:16%;top:8%;width:66%;height:66%;border:2.5px solid var(--box);border-radius:3px;transition:all .8s cubic-bezier(.2,.8,.2,1)}
+.det .bbox span{position:absolute;left:-2.5px;bottom:100%;background:var(--box);color:var(--box-ink);font-family:var(--mono);font-size:12px;font-weight:600;padding:2px 8px;white-space:nowrap}
+.det .scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--box),transparent);top:0;opacity:0;animation:scan 4.5s ease-in-out infinite}
+@keyframes scan{0%{top:2%;opacity:0}10%{opacity:.8}50%{top:94%;opacity:.8}60%{opacity:0}100%{top:94%;opacity:0}}
+.det figcaption{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:10px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:48px}.det{width:min(100%,320px);justify-self:start;margin-left:8px}}
+
+/* sections */
+section.block{padding-block:72px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.6vw,52px);letter-spacing:-.025em;line-height:1;margin:0}
+.kicker{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.reveal{transition:opacity .7s ease,transform .7s ease}
+.js .reveal.pending{opacity:.001;transform:translateY(18px)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:64px}
+.stat{background:var(--surface);padding:20px}
+.stat b{display:block;font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{font-size:13.5px;color:var(--muted)}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;padding-block:32px;border-bottom:1px dashed var(--line)}
+.job:last-child{border-bottom:0}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.job h3{font-family:var(--display);font-size:24px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600}
+.job .org{color:var(--accent);font-weight:600;margin-bottom:12px}
+.job ul{margin:0;padding-left:18px;max-width:70ch}
+.job li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.job .tags{margin-top:14px}
+.tag{font-family:var(--mono);font-size:11.5px;padding:3px 9px;border-radius:6px;background:var(--pink-soft);color:var(--fg)}
+.thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px;max-width:760px}
+.thumbs button{position:relative;padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;aspect-ratio:16/10;cursor:zoom-in;background:var(--pink-soft)}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transition:transform .4s}
+.thumbs button:hover img{transform:scale(1.05)}
+.thumbs .plus{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--fg) 62%,transparent);color:var(--bg);font-family:var(--mono);font-weight:600;font-size:15px}
+@media (max-width:700px){.job{grid-template-columns:1fr;gap:8px}.thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--fg)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip sup{font-family:var(--mono);font-size:10px;margin-left:3px;opacity:.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;grid-auto-flow:dense}
+@media (max-width:420px){.grid{grid-template-columns:1fr}}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;min-width:0;flex:1}
+.card.feature{grid-column:span 2}
+.card.split{flex-direction:row}
+.card.split > .shot,.card.split > .phones{flex:0 0 46%;border-bottom:0;border-right:1px solid var(--line)}
+.card.split > .shot{aspect-ratio:auto}
+@media (max-width:780px){.card.feature{grid-column:auto}.card.split{flex-direction:column}.card.split > .shot,.card.split > .phones{border-right:0;border-bottom:1px solid var(--line)}.card.split > .shot{aspect-ratio:16/10}}
+.shot{position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:0;border-bottom:1px solid var(--line);background:var(--pink-soft);cursor:zoom-in;overflow:hidden}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .5s}
+.shot:hover img{transform:scale(1.03)}
+.shot.contain img{object-fit:contain;object-position:center}
+.count{display:inline-flex;align-items:center;gap:5px;position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:11.5px;background:var(--fg);color:var(--bg);padding:3px 8px;border-radius:6px;pointer-events:none}
+/* phone strip */
+.phones{position:relative;background:var(--pink-soft);padding:22px 0 18px;overflow:hidden;min-width:0}
+.phones .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 22px 10px;scrollbar-width:thin}
+.phones .track button{flex:0 0 auto;width:150px;padding:0;border:6px solid var(--fg);border-radius:22px;overflow:hidden;cursor:zoom-in;scroll-snap-align:start;background:var(--fg);transition:transform .3s}
+.phones .track button:hover{transform:translateY(-4px)}
+.phones .track img{display:block;width:100%;aspect-ratio:9/19.5;object-fit:cover;object-position:top}
+.phones .hint{font-family:var(--mono);font-size:11px;color:var(--muted);padding:0 22px;margin-top:4px}
+.card.split > .phones{display:flex;flex-direction:column;justify-content:center}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.badge{padding:2px 8px;border-radius:5px;border:1px solid currentColor;white-space:nowrap}
+.badge.live{color:var(--accent)}
+.badge.award{background:var(--pink);border-color:var(--pink);color:var(--fg)}
+.card h3{font-family:var(--display);font-size:23px;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.15}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card ul.feat{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;columns:2 220px;column-gap:24px}
+.card ul.feat li{break-inside:avoid;margin-bottom:4px}
+.plinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.job .plinks{margin-top:14px}
+.ico{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:grid;place-items:center;text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.ico:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);transform:translateY(-2px)}
+.ico-vid,.ico-yt,.ico-demo{color:var(--accent)}
+.card .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:auto;padding-top:4px}
+.card .links a,.card .links button{font-weight:600;font-size:14px;color:var(--accent);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.card .links a:hover,.card .links button:hover{text-decoration:underline}
+.metrics{display:grid;gap:8px;margin-top:4px}
+.metric{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(60px,1fr) auto;align-items:center;gap:12px;font-size:13px}
+.metric .lbl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.metric .bar{height:6px;background:var(--pink-soft);border-radius:3px;overflow:hidden}
+.metric .bar i{display:block;height:100%;width:0;background:var(--box);border-radius:3px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.metric .val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
+.pipeline{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-family:var(--mono);font-size:12px}
+.pipeline span{padding:4px 9px;border:1px solid var(--line);border-radius:6px}
+.pipeline em{font-style:normal;color:var(--accent)}
+.card.hide{display:none}
+.more{margin-top:28px;color:var(--muted);font-size:15px}
+.more b{color:var(--fg);font-weight:600}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;width:min(1200px,96vw);max-width:none;max-height:96vh;color:#FBEAF0;overflow:visible}
+dialog.lb::backdrop{background:rgba(27,17,23,.9)}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lb .stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%}
+.lb img{max-width:100%;max-height:76vh;border-radius:8px;display:block;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lb figcaption{font-family:var(--mono);font-size:13px;text-align:center;max-width:70ch;padding-inline:8px}
+.lb figcaption b{color:#F6A9C4;font-weight:600}
+.lb .ctrl{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb button{font-weight:600;background:#FBEAF0;color:#2B1621;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.lb .dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:90%}
+.lb .dots i{width:7px;height:7px;border-radius:50%;background:rgba(251,234,240,.3)}
+.lb .dots i.on{background:#F6A9C4}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px 40px}
+.skill h3{font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:0 0 12px;font-weight:600}
+.skill .pills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{font-size:14px;padding:5px 11px;border:1px solid var(--line);border-radius:8px;background:var(--surface);transition:border-color .2s,background .2s}
+.pill:hover{border-color:var(--box);background:var(--pink-soft)}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.edu > div{min-width:0}
+.edu h3{font-family:var(--display);font-size:20px;font-weight:600;margin:0 0 6px}
+.edu .when{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.edu ul{padding-left:18px;margin:8px 0 0}
+.lang{display:grid;gap:10px;margin-top:10px}
+.lang div{display:grid;grid-template-columns:90px 1fr 40px;gap:10px;align-items:center;font-size:14px}
+.dots6{display:flex;gap:4px}
+.dots6 i{flex:1;height:6px;border-radius:2px;background:var(--pink-soft)}
+.dots6 i.on{background:var(--box)}
+.lang code{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+@media (max-width:860px){.edu{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end}
+.contact h2{font-size:clamp(40px,7vw,84px);line-height:.95}
+.contact h2 span{color:var(--box)}
+.clinks{display:grid;border-top:1px solid var(--line)}
+.clinks .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);min-width:0}
+.clinks .k{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;flex:none;width:80px}
+.clinks .v{flex:1;min-width:0;overflow-wrap:anywhere;font-weight:500;user-select:all}
+.clinks a.v{text-decoration:none;user-select:auto}
+.clinks a.v:hover{color:var(--accent)}
+.copy{font-family:var(--mono);font-size:12px;background:none;border:1px solid var(--line);color:var(--fg);border-radius:6px;padding:4px 10px;cursor:pointer;flex:none}
+@media (max-width:860px){.contact{grid-template-columns:1fr;gap:32px}}
+footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+<div class="wrap">
+<a class="logo" href="#top">ikbel<span>.</span>hamdi</a>
+<div class="nav-right">
+<ul>
+<li><a data-i="0" href="#experience">Expérience</a></li>
+<li><a data-i="1" href="#projets">Projets</a></li>
+<li><a data-i="2" href="#competences">Compétences</a></li>
+<li><a data-i="3" href="#formation">Formation</a></li>
+<li><a data-i="4" href="#contact">Contact</a></li>
+</ul>
+<button aria-label="Switch to English" class="lang-btn" id="langBtn" title="English / Français">EN</button>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Changer de thème">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"></path></svg>
+</button>
+</div>
+</div>
+</header>
+<main id="top">
+<section class="hero">
+<canvas aria-hidden="true" id="field"></canvas>
+<div class="wrap">
+<div>
+<span class="status" data-i="5"><i></i>Disponible · stage PFE 6 mois dès janvier 2027</span>
+<h1>Ikbel<br/><span class="last">Hamdi</span></h1>
+<div aria-live="polite" class="role">&gt; <b id="typed">Ingénieure Data Science &amp; IA</b><span class="caret"></span></div>
+<p class="lede" data-i="6">Étudiante en dernière année du cycle ingénieur en Data Science &amp; IA à l'ESPRIT. Passionnée par le machine learning, la vision par ordinateur et l'IA générative, j'ai une expérience concrète en pipelines RAG, agents LLM et modèles de vision. Je travaille sur tout type de données et je développe mes solutions de bout en bout, du modèle jusqu'aux applications web, desktop et mobiles.</p>
+<div class="cta">
+<a class="btn primary" data-i="7" href="#projets">Voir mes projets →</a>
+<a class="btn" data-i="8" href="#contact">Me contacter</a>
+<a class="btn" href="https://github.com/hamdikbell" rel="noopener" target="_blank">GitHub</a>
+</div>
+</div>
+<figure class="det" id="det">
+<div class="frame">
+<img alt="Avatar illustré d'Ikbel Hamdi" class="avatar" height="643" src="img/avatar.jpg" width="560"/>
+<div class="bbox" id="bbox"><span id="bboxLabel">ingénieure_ia 0.99</span></div>
+</div>
+<figcaption><span>YOLOv8 · inference</span><span id="fps">12 ms</span></figcaption>
+</figure>
+</div>
+<div class="wrap">
+<div class="stats reveal">
+<div class="stat"><b>17</b><span data-i="12">projets IA, data, web, mobile et embarqué</span></div>
+<div class="stat"><b>2</b><span data-i="13">stages en IA générative et logiciel</span></div>
+<div class="stat"><b>99 %</b><span data-i="14">meilleure précision (langue des signes)</span></div>
+<div class="stat"><b>Top 10</b><span data-i="15">projets ESPRIT 2024 avec AzulTunes</span></div>
+</div>
+</div>
+</section>
+<section class="block" id="experience">
+<div class="wrap">
+<div class="sec-head reveal"><h2 data-i="0">Expérience</h2><span class="kicker" data-i="16">Stages</span></div>
+<div>
+<article class="job reveal">
+<div class="when" data-i="17">Juin – Août 2026</div>
+<div>
+<h3 data-i="18">Stagiaire Ingénieure IA, RAG &amp; IA générative</h3>
+<div class="org" data-i="19">Sotetel · Assistant RAG Télécom</div>
+<ul>
+<li data-i="20">Assistant conversationnel sur la documentation réseau et fibre optique : extraction, structuration et indexation de PDF non structurés dans ChromaDB.</li>
+<li data-i="21">Inférence LLM en local avec Ollama (Llama 3, qwen2.5:3b), réponses sourcées avec les extraits utilisés et refus des questions hors sujet.</li>
+<li data-i="22">Dictée vocale et lecture audio des réponses, historique des conversations, profils collaborateurs, mode clair et sombre.</li>
+<li data-i="23">Tableau de bord d'usage : conversations, requêtes RAG, répartition par domaine télécom et par type de document.</li>
+</ul>
+<div class="tags"><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">Ollama</span><span class="tag">Llama 3</span><span class="tag">Streamlit</span><span class="tag">RAG</span></div><div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/telecom-rag-assistant" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a><a aria-label="Vidéo de présentation · LinkedIn" class="ico ico-vid" data-ten="Presentation video · LinkedIn" data-tfr="Vidéo de présentation · LinkedIn" href="https://lnkd.in/p/etM6wdX6" rel="noopener" target="_blank" title="Vidéo de présentation · LinkedIn"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><path d="M10 8.5v7l6-3.5z" fill="currentColor"></path></svg></a></div>
+<div class="thumbs" data-g="sotetel"></div>
+</div>
+</article>
+<article class="job reveal">
+<div class="when" data-i="30">1,5 mois</div>
+<div>
+<h3 data-i="31">Stagiaire Développeuse Logiciel &amp; IA</h3>
+<div class="org">CTN Tunis</div>
+<ul>
+<li data-i="33">Application web de gestion des réclamations intégrant l'IA générative (Gemini) et une base de données Oracle.</li>
+</ul>
+<div class="tags"><span class="tag">Gemini</span><span class="tag">Oracle</span><span class="tag" data-i="36">IA générative</span></div>
+<div class="thumbs" data-g="ctn"></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="block" id="projets">
+<div class="wrap">
+<div class="sec-head reveal">
+<h2 data-i="1">Projets</h2>
+<div aria-label="Filtrer les projets" class="filters" role="group">
+<button aria-pressed="true" class="chip" data-f="all" id="f-all"><span data-i="37">Tous</span></button>
+<button aria-pressed="false" class="chip" data-f="ia" id="f-ia"><span data-i="38">IA &amp; data science</span></button>
+<button aria-pressed="false" class="chip" data-f="vision" id="f-vision">Vision</button>
+<button aria-pressed="false" class="chip" data-f="sante" id="f-sante"><span data-i="40">Santé</span></button>
+<button aria-pressed="false" class="chip" data-f="web" id="f-web">Web, desktop &amp; mobile</button>
+<button aria-pressed="false" class="chip" data-f="bi" id="f-bi">BI</button>
+<button aria-pressed="false" class="chip" data-f="emb" id="f-emb"><span data-i="43">Embarqué</span></button>
+</div>
+</div>
+<div class="grid" id="grid">
+<article class="card feature reveal" data-cat="ia sante vision">
+<div class="body">
+<div class="top"><span data-i="44">Imagerie médicale · IA multimodale · XAI</span><span class="badge live" data-i="45">En cours</span></div>
+<h3>Multimodal Medical AI Automation System</h3>
+<p data-i="47">Système multi-agents d'aide à la décision en imagerie mammaire (dataset BCMID), alimenté par des données multimodales : images et rapports médicaux. Un orchestrateur coordonne des agents spécialisés (vision, RAG, preuves, contrôle qualité) jusqu'à un rapport explicable.</p>
+<p data-i="48">En amont : nettoyage, contrôle qualité et anonymisation des données, détection des biais d'acquisition. ResNet18 en fine-tuning avec validation croisée par groupe de patients et explications Grad-CAM.</p>
+<div class="pipeline"><span data-i="49">Images + rapports</span><em>→</em><span data-i="50">Orchestrateur</span><em>→</em><span data-i="51">Agent vision · ResNet18</span><em>→</em><span data-i="52">Agent RAG · BGE + FAISS</span><em>→</em><span data-i="53">Assemblage de preuves</span><em>→</em><span data-i="54">Contrôle qualité &amp; sécurité</span><em>→</em><span data-i="55">Rapport via n8n</span></div>
+<div class="tags"><span class="tag" data-i="56">Données multimodales</span><span class="tag">RAG</span><span class="tag" data-i="50">Orchestrateur</span><span class="tag" data-i="57">Multi-agents</span><span class="tag">PyTorch</span><span class="tag">ResNet18</span><span class="tag">Grad-CAM</span><span class="tag">n8n</span></div>
+</div>
+</article>
+<article class="card feature split reveal" data-cat="ia vision web">
+<div class="phones" data-g="agrivai"><div class="track"></div><div class="hint" data-i="62">← faites défiler · 15 écrans</div></div>
+<div class="body">
+<div class="top"><span data-i="63">Agritech · IoT · Cheffe de projet</span><span class="badge" data-i="64">App mobile</span></div>
+<h3>AgriVAI</h3>
+<p data-i="66">Application mobile d'agriculture de précision en trois langues (FR, EN, AR) et deux thèmes. Six modules IA analysent photos, capteurs et données climatiques, avec un historique et des tendances de santé par animal et par plante.</p>
+<ul class="feat">
+<li data-i="67">Maladies des plantes et du bétail par photo</li>
+<li data-i="68">Qualité des fruits (bon, mixte, mauvais)</li>
+<li data-i="69">Recommandation de cultures et d'engrais</li>
+<li data-i="70">Irrigation : GPS et capteur IoT ESP8266</li>
+<li data-i="71">Production laitière + conseils Llama 3.3 via Groq</li>
+<li data-i="72">Journal, scans et santé par animal</li>
+</ul>
+<div class="metrics">
+<div class="metric"><span class="lbl" data-i="73">Cultures · Random Forest</span><span class="bar"><i data-w="96"></i></span><span class="val">96 %</span></div>
+<div class="metric"><span class="lbl" data-i="74">Maladies des feuilles · MobileNetV2</span><span class="bar"><i data-w="96"></i></span><span class="val">96 %</span></div>
+<div class="metric"><span class="lbl" data-i="75">Santé du bétail · EfficientNetB0</span><span class="bar"><i data-w="93"></i></span><span class="val">93 %</span></div>
+<div class="metric"><span class="lbl">Irrigation · LightGBM</span><span class="bar"><i data-w="88"></i></span><span class="val">88 %</span></div>
+<div class="metric"><span class="lbl">Fertilisation · CatBoost</span><span class="bar"><i data-w="99"></i></span><span class="val">R² 0,99</span></div>
+</div>
+<div class="plinks"><a aria-label="Vidéo de présentation · LinkedIn" class="ico ico-vid" data-ten="Presentation video · LinkedIn" data-tfr="Vidéo de présentation · LinkedIn" href="https://lnkd.in/p/eGtzRkuQ" rel="noopener" target="_blank" title="Vidéo de présentation · LinkedIn"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><path d="M10 8.5v7l6-3.5z" fill="currentColor"></path></svg></a><a aria-label="Vidéo de démonstration · LinkedIn" class="ico ico-demo" data-ten="Demo video · LinkedIn" data-tfr="Vidéo de démonstration · LinkedIn" href="https://lnkd.in/p/exyechJW" rel="noopener" target="_blank" title="Vidéo de démonstration · LinkedIn"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" width="20" x="2" y="4"></rect><path d="M8 21h8M12 17v4"></path><path d="M10 8v5l4-2.5z" fill="currentColor"></path></svg></a></div></div>
+</article>
+<article class="card feature split reveal" data-cat="ia sante vision">
+<button class="shot" data-g="oncorisk"></button>
+<div class="body">
+<div class="top"><span data-i="78">Oncologie · Streamlit</span><span class="badge" data-i="79">Outil éducatif</span></div>
+<h3>OncoRisk AI</h3>
+<p data-i="81">Outil de sensibilisation aux risques de cancer en deux approches complémentaires, avec rapport PDF téléchargeable.</p>
+<ul class="feat">
+<li data-i="82">Questionnaire conversationnel sur les facteurs de risque</li>
+<li data-i="83">Type de cancer prédit, niveau de risque et recommandations</li>
+<li data-i="84">Analyse d'images par organe : côlon (histopathologie), sein (EfficientNetV2B3)</li>
+<li data-i="85">Confiance et probabilités par classe</li>
+</ul>
+<div class="metrics">
+<div class="metric"><span class="lbl">Softmax Regression</span><span class="bar"><i data-w="98"></i></span><span class="val">98 %</span></div>
+<div class="metric"><span class="lbl">AdaBoost</span><span class="bar"><i data-w="98"></i></span><span class="val">98 %</span></div>
+</div>
+<div class="tags"><span class="tag">CNN</span><span class="tag">EfficientNetV2B3</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span></div>
+</div>
+</article>
+<article class="card feature split reveal" data-cat="web ia">
+<button class="shot" data-g="azul"></button>
+<div class="body">
+<div class="top"><span data-i="91">Tourisme · Web</span><span class="badge award">Top 10 ESPRIT 2024</span></div>
+<h3>AzulTunes</h3>
+<p data-i="94">Plateforme web de promotion du tourisme en Tunisie : événements, offres d'hôtels et de restaurants, blogs de voyage et chatbots IA, avec une sécurité renforcée des données utilisateurs.</p>
+<ul class="feat">
+<li data-i="95">Comptes chiffrés, vérification par email</li>
+<li data-i="96">Billets d'événements avec QR code et confirmation SMS</li>
+<li data-i="97">Recommandation d'offres et carte des lieux</li>
+<li data-i="98">Blogs avec notes, commentaires et filtre de mots grossiers</li>
+<li data-i="99">Contrats de partenariat téléchargeables</li>
+<li data-i="100">AzulBot : chatbot IA et support des réclamations</li>
+</ul>
+<div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript ES6</span><span class="tag" data-i="104">Chatbot IA</span><span class="tag">Email &amp; SMS</span><span class="tag">QR code</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Azul_Tunes" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a><a aria-label="Vidéo de présentation · YouTube" class="ico ico-yt" data-ten="Presentation video · YouTube" data-tfr="Vidéo de présentation · YouTube" href="https://www.youtube.com/watch?v=vu_uBOs_uzM" rel="noopener" target="_blank" title="Vidéo de présentation · YouTube"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><path d="M10 8.5v7l6-3.5z" fill="currentColor"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="ia vision">
+<button class="shot" data-g="sign"></button>
+<div class="body">
+<div class="top"><span data-i="108">Vision · Temps réel</span></div>
+<h3 data-i="109">Reconnaissance de la langue des signes</h3>
+<p data-i="110">Traduction en direct depuis la webcam avec MediaPipe : mode statique pour les lettres A à Z, mode dynamique pour les gestes (please, thank you, yes, no…). Les mots reconnus s'enchaînent à l'écran.</p>
+<div class="metrics">
+<div class="metric"><span class="lbl" data-i="111">MLP · lettres</span><span class="bar"><i data-w="99"></i></span><span class="val">99 %</span></div>
+<div class="metric"><span class="lbl" data-i="112">LSTM · gestes</span><span class="bar"><i data-w="75"></i></span><span class="val">75 %</span></div>
+</div>
+<div class="tags"><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">MLP</span><span class="tag">LSTM</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Sign-Language-recognition" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a><a aria-label="Vidéo de présentation · LinkedIn" class="ico ico-vid" data-ten="Presentation video · LinkedIn" data-tfr="Vidéo de présentation · LinkedIn" href="https://lnkd.in/p/esbfxy3v" rel="noopener" target="_blank" title="Vidéo de présentation · LinkedIn"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><path d="M10 8.5v7l6-3.5z" fill="currentColor"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="ia">
+<button class="shot" data-g="delivery"></button>
+<div class="body">
+<div class="top"><span data-i="117">Logistique · Streamlit</span><span class="badge" data-i="118">150 000+ livreurs</span></div>
+<h3>Delivery Prediction ML</h3>
+<p data-i="120">Delivery Management en trois onglets : régression du nombre de commandes en attente, classification KNN des commandes à haute valeur, clustering des zones de stress avec détection d'anomalies, simulation et export CSV.</p>
+<div class="metrics">
+<div class="metric"><span class="lbl">Classification</span><span class="bar"><i data-w="96"></i></span><span class="val">96 %</span></div>
+</div>
+<div class="tags"><span class="tag">Random Forest</span><span class="tag">KNN</span><span class="tag">K-Means</span><span class="tag">MAE 6</span><span class="tag">Plotly</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Ddelivery-Prediction-ML" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="web ia">
+<button class="shot" data-g="optirh"></button>
+<div class="body">
+<div class="top"><span data-i="127">RH · Projet d'équipe</span><span class="badge">Web + desktop</span></div>
+<h3>OptiRH</h3>
+<p data-i="902">Plateforme de gestion RH en version web Symfony et desktop JavaFX : offres, candidatures, entretiens, missions et transport. Le module événements intègre carte, météo, paiement Stripe et descriptions générées par IA. Les réclamations sont analysées automatiquement (sentiment, dictée vocale, traduction).</p>
+
+<div class="tags"><span class="tag">Symfony</span><span class="tag">PHP</span><span class="tag">JavaFX</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">Stripe</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/OptiRH" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="bi">
+<button class="shot" data-g="crm"></button>
+<div class="body">
+<div class="top"><span>Business Intelligence</span><span class="badge">Power BI</span></div>
+<h3 data-i="145">Tableau de bord CRM</h3>
+<p data-i="146">Rapport interactif en quatre pages : vue d'ensemble, tendances des ventes (carte, produits, clients), conversions par produit et trimestre, performance des équipes. 10,01 M de chiffre d'affaires et 63,15 % de conversion analysés.</p>
+<div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data viz</span></div>
+</div>
+</article>
+<article class="card reveal" data-cat="ia bi">
+<div class="body">
+<div class="top"><span>Business Intelligence</span><span class="badge live" data-i="45">En cours</span></div>
+<h3 data-i="149">Système BI multi-agents</h3>
+<p data-i="150">Automatisation de la chaîne BI à partir de sources multiples, jusqu'à la génération des tableaux de bord.</p>
+<div class="pipeline"><span data-i="151">Nettoyage</span><em>→</em><span>Data engineering</span><em>→</em><span>Reporting KPI</span></div>
+<div class="tags"><span class="tag" data-i="154">Agents LLM</span><span class="tag">Power BI</span></div>
+</div>
+</article>
+<article class="card reveal" data-cat="ia">
+<button class="shot contain" data-g="evrp"></button>
+<div class="body">
+<div class="top"><span data-i="155">Optimisation · Streamlit</span></div>
+<h3>EVRPTC</h3>
+<p data-i="157">Optimisation de tournées de véhicules électriques avec contraintes de capacité et de batterie, dépôt, satellites et bornes de recharge, résolue par colonies de fourmis et visualisée en graphe.</p>
+<div class="tags"><span class="tag">Ant Colony</span><span class="tag">Python</span><span class="tag">NetworkX</span><span class="tag">Streamlit</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Ant-colony-2e-evrp" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="ia">
+<button class="shot" data-g="fifa"></button>
+<div class="body">
+<div class="top"><span data-i="161">Sport · Prédiction</span></div>
+<h3>FIFA World Cup 2026</h3>
+<p data-i="163">Application de prédiction de la phase de groupes : 48 équipes, 12 groupes, 68 scores prédits combinés aux scores réels pour calculer les classements et les équipes qualifiées.</p>
+<div class="tags"><span class="tag">Python</span><span class="tag">Machine learning</span><span class="tag">Streamlit</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Fifa-world-cup-2026-prediction" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a><a aria-label="Tester l'application en ligne" class="ico ico-web" data-ten="Try the live app" data-tfr="Tester l'application en ligne" href="https://fifa-world-cup-2026-predections.streamlit.app/" rel="noopener" target="_blank" title="Tester l'application en ligne"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M14 3h7v7M21 3l-9 9"></path><path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="web">
+<button class="shot" data-g="gem"></button>
+<div class="body">
+<div class="top"><span data-i="165">Desktop · Bijouterie</span></div>
+<h3>GemTrack Pro</h3>
+<p data-i="167">Application desktop de gestion de bijouterie : employés, bijoux, clients, fournisseurs et réclamations. Catalogue illustré avec QR code par article, envoi d'emails, statistiques et export PDF.</p>
+<div class="tags"><span class="tag">C++</span><span class="tag">Qt Designer</span><span class="tag">SQL</span><span class="tag">QR code</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Projet_Smart_Jewelry" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a></div></div>
+</article>
+<article class="card reveal" data-cat="web">
+<button class="shot contain" data-g="yummy"></button>
+<div class="body">
+<div class="top"><span data-i="171">Mobile · Livraison</span></div>
+<h3>Yummy Food</h3>
+<p data-i="173">Application mobile de commande et de livraison de repas : restaurants filtrés par cuisine et ouverture, détail des plats avec ingrédients en option, panier, notifications et inscription Google ou Facebook.</p>
+<div class="tags"><span class="tag">FlutterFlow</span><span class="tag">Flutter</span><span class="tag">Mobile</span></div>
+</div>
+</article>
+<article class="card reveal" data-cat="emb">
+<button class="shot contain" data-g="micro"></button>
+<div class="body">
+<div class="top"><span data-i="177">Systèmes embarqués · Proteus</span><span class="badge">PIC16F877</span></div>
+<h3 data-i="179">Parking intelligent</h3>
+<p data-i="901">Système de parking intelligent qui compte les voitures stationnées et affiche les places disponibles et la température. La réservation se confirme par insertion de pièces, avec annulation automatique après 10 secondes. La sortie se fait par lecture du QR code du ticket, et l'éclairage s'adapte à la luminosité.</p>
+<div class="tags"><span class="tag">PIC16F877</span><span class="tag" data-i="188">C embarqué</span><span class="tag">LM35</span><span class="tag">LDR</span><span class="tag">LCD</span><span class="tag">Proteus</span></div>
+</div>
+</article>
+<article class="card reveal" data-cat="ia vision">
+<div class="body">
+<div class="top"><span data-i="193">Accessibilité · Temps réel</span></div>
+<h3>Assistive Vision</h3>
+<p data-i="195">Assistant pour personnes malvoyantes : détection d'obstacles, lecture de texte et description de scène, restitués à la voix.</p>
+<div class="pipeline"><span>YOLOv8n</span><em>+</em><span>EasyOCR</span><em>+</em><span>BLIP</span><em>→</em><span data-i="199">Voix</span></div>
+<div class="plinks"><a aria-label="Code sur GitHub" class="ico ico-gh" data-ten="Code on GitHub" data-tfr="Code sur GitHub" href="https://github.com/hamdikbell/Assist-Vision" rel="noopener" target="_blank" title="Code sur GitHub"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg></a></div></div>
+</article>
+</div>
+</div>
+</section>
+<section class="block" id="competences">
+<div class="wrap">
+<div class="sec-head reveal"><h2 data-i="2">Compétences</h2><span class="kicker" data-i="200">Stack technique</span></div>
+<div class="skills" id="skills"></div>
+</div>
+</section>
+<section class="block" id="formation">
+<div class="wrap">
+<div class="sec-head reveal"><h2 data-i="3">Formation</h2><span class="kicker" data-i="201">Diplômes · Certifications · Langues</span></div>
+<div class="edu">
+<div class="reveal">
+<h3 data-i="202">Diplôme d'ingénieur en Data Science &amp; IA</h3>
+<div class="when" data-i="203">ESPRIT, Tunisie · 2022 – 2027</div>
+<p data-i="204" style="margin:10px 0 0;color:var(--muted)">Dernière année. Baccalauréat Sciences expérimentales, 2022.</p>
+</div>
+<div class="reveal">
+<h3>Certifications</h3>
+<ul>
+<li data-i="206"><b>NVIDIA DLI</b> : deep learning, NLP, IA générative, applications LLM, détection d'anomalies</li>
+<li data-i="207"><b>MASSAI Summer School 2026</b> : IA générative, LLMs et agents IA</li>
+<li><b>365 Data Science</b> : SQL (2025)</li>
+</ul>
+</div>
+<div class="reveal">
+<h3 data-i="209">Langues</h3>
+<div class="lang">
+<div><span data-i="210">Arabe</span><span class="dots6" data-n="6"></span><code data-i="211">natif</code></div>
+<div><span data-i="212">Français</span><span class="dots6" data-n="4"></span><code>B2</code></div>
+<div><span data-i="214">Anglais</span><span class="dots6" data-n="4"></span><code>B2</code></div>
+<div><span data-i="215">Turc</span><span class="dots6" data-n="1"></span><code>A1</code></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="contact">
+<div class="wrap contact">
+<div class="reveal">
+<span class="kicker" data-i="4">Contact</span>
+<h2 data-i="900">Travaillons<br/>ensemble<span>.</span></h2>
+<p class="lede" data-i="217" style="margin-bottom:0">Je cherche un stage de fin d'études de 6 mois à partir de janvier 2027, en machine learning, vision par ordinateur ou IA générative.</p>
+</div>
+<div class="clinks reveal">
+<div class="row"><span class="k">Email</span><span class="v">hamdikbel2@gmail.com</span><button class="copy" data-copy="hamdikbel2@gmail.com" data-i="220">Copier</button></div>
+<div class="row"><span class="k" data-i="221">Tél.</span><span class="v">+216 50 483 892</span><button class="copy" data-copy="+21650483892" data-i="220">Copier</button></div>
+<div class="row"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/ikbel-hamdi-706427286" rel="noopener" target="_blank">ikbel-hamdi ↗</a></div>
+<div class="row"><span class="k">GitHub</span><a class="v" href="https://github.com/hamdikbell" rel="noopener" target="_blank">hamdikbell ↗</a></div>
+<div class="row"><span class="k" data-i="224">Lieu</span><span class="v" data-i="225">Ariana, Tunisie</span></div>
+</div>
+</div>
+<div class="wrap"><footer style="margin-top:64px;justify-content:center"><span class="made">Made with <span aria-label="amour" class="heart">♥</span> by Ikbel Hamdi</span></footer></div>
+</section>
+</main>
+<dialog aria-label="Galerie du projet" class="lb" id="lb">
+<figure>
+<div class="stage"><img alt="" id="lbImg"/></div>
+<figcaption id="lbCap"></figcaption>
+<div class="dots" id="lbDots"></div>
+<div class="ctrl"><button data-i="226" id="lbPrev">← Préc.</button><button data-i="227" id="lbNext">Suiv. →</button><button data-i="228" id="lbClose">Fermer</button></div>
+</figure>
+</dialog>
+<script>
+document.documentElement.classList.add('js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* galleries: [file, caption] */
+const G={
+ sotetel:{t:'Sotetel · Assistant RAG Télécom',n:8,c:['Accueil du chat avec historique des conversations','Réponse sourcée : procédure d\'installation d\'un site GSM','Refus d\'une question hors documentation','Tableau de bord analytics RAG','Dictée vocale avec qwen2.5:3b','Profil collaborateur','Guide d\'utilisation · mode clair','Guide d\'utilisation · mode sombre']},
+ ctn:{t:'CTN · Gestion des réclamations',n:1,c:['Page de connexion de l\'application']},
+ agrivai:{t:'AgriVAI',n:15,c:['Détection des maladies du bétail','Création de compte','Recommandation de cultures','Recommandation d\'engrais','Qualité des fruits','Historique des analyses','Irrigation · saisie et GPS','Irrigation · capteur ESP8266 et résultat','Production laitière et conseils Llama 3.3','Tableau de bord des 6 modules','Détection des maladies des plantes','Profil · animaux','Profil · tendances de santé','Paramètres · thème et langues','Connexion']},
+ oncorisk:{t:'OncoRisk AI',n:7,c:['Accueil et avertissement éducatif','Questionnaire interactif','Résultat du questionnaire','Analyse d\'image · côlon (histopathologie)','Résultat · adénocarcinome détecté','Analyse d\'image · sein (EfficientNetV2B3)','Résultat · non-cancer']},
+ azul:{t:'AzulTunes',n:1,c:['Page d\'accueil et AzulBot']},
+ sign:{t:'Langue des signes',n:5,c:['Mode dynamique · geste « please »','Mode dynamique · geste « no »','Mode statique · lettre B','Mode statique · lettre L','Mode statique · lettre V']},
+ delivery:{t:'Delivery Prediction ML',n:7,c:['Clustering des zones de stress','Régression · importance des variables','Prédictions moyennes selon l\'heure','Classification KNN des commandes','Statistiques par zone de stress','Simulation de livraison','Anomalies détectées (> 5 h)']},
+ optirh:{t:'OptiRH',n:13,c:['Accueil du site public','Événements à venir','Liste des événements avec compte à rebours','Description d\'événement générée par IA','Paiement Stripe (mode test)','Billet PDF avec code-barres','Détails d\'une offre','Formulaire de candidature','Entretiens avec lien Google Meet','Réclamations avec analyse de sentiment','Réclamation par dictée vocale','Outil de traduction','Tableau de bord employé']},
+ crm:{t:'Tableau de bord CRM',n:4,c:['Vue d\'ensemble','Tendances des ventes','Taux de conversion par produit','Performance des équipes commerciales']},
+ evrp:{t:'EVRPTC',n:1,c:['Visualisation des tournées']},
+ fifa:{t:'FIFA World Cup 2026',n:3,c:['Classements des groupes','Scores réels et prédits','Équipes qualifiées']},
+ gem:{t:'GemTrack Pro',n:5,c:['Catalogue des bijoux avec QR code','Choix du module de gestion','Connexion','Envoi d\'emails aux clients','Statistiques des réclamations']},
+ yummy:{t:'Yummy Food',n:4,c:['Inscription','Écran d\'accueil','Liste des restaurants','Inscription, notifications, détail d\'un plat et accueil']},
+ micro:{t:'Parking intelligent',n:1,c:['Schéma de simulation Proteus · PIC16F877']}
+};
+let LANG='fr';
+const GT={ctn:'CTN · Complaint management',sign:'Sign language',crm:'CRM dashboard',micro:'Smart parking',sotetel:'Sotetel · Telecom RAG Assistant'};
+const GE={
+ sotetel:['Chat home with conversation history','Sourced answer: GSM site installation procedure','Declining an off-topic question','RAG analytics dashboard','Voice dictation with qwen2.5:3b','Employee profile','User guide · light mode','User guide · dark mode'],
+ ctn:['Application login page'],
+ agrivai:['Livestock disease detection','Sign-up','Crop recommendation','Fertilizer recommendation','Fruit quality','Analysis history','Irrigation · inputs and GPS','Irrigation · ESP8266 sensor and result','Milk yield and Llama 3.3 advice','Dashboard of the 6 modules','Plant disease detection','Profile · animals','Profile · health trends','Settings · theme and languages','Login'],
+ oncorisk:['Home and educational disclaimer','Interactive questionnaire','Questionnaire result','Image analysis · colon (histopathology)','Result · adenocarcinoma detected','Image analysis · breast (EfficientNetV2B3)','Result · non-cancer'],
+ azul:['Home page and AzulBot'],
+ sign:['Dynamic mode · “please” gesture','Dynamic mode · “no” gesture','Static mode · letter B','Static mode · letter L','Static mode · letter V'],
+ delivery:['Stress-zone clustering','Regression · feature importance','Average predictions by hour','KNN order classification','Statistics by stress zone','Delivery simulation','Detected anomalies (> 5 h)'],
+ optirh:['Public site home page','Upcoming events','Event list with countdown','AI-generated event description','Stripe payment (test mode)','PDF ticket with barcode','Job offer details','Application form','Interviews with Google Meet link','Complaints with sentiment analysis','Complaint by voice dictation','Translation tool','Employee dashboard'],
+ crm:['Overview','Sales trends','Conversion rate by product','Sales team performance'],
+ evrp:['Route visualization'],
+ fifa:['Group standings','Real and predicted scores','Qualified teams'],
+ gem:['Jewelry catalog with QR code','Choosing a management module','Login','Emailing clients','Complaint statistics'],
+ yummy:['Sign-up','Welcome screen','Restaurant list','Sign-up, notifications, dish details and home'],
+ micro:['Proteus simulation schematic · PIC16F877']
+};
+const EN={"0": "Experience", "1": "Projects", "2": "Skills", "3": "Education", "4": "Contact", "5": "<i></i>Available · 6-month final-year internship from January 2027", "6": "Final-year engineering student at ESPRIT. I work with multimodal data, meaning any kind of data: text, images, documents, IoT signals and tabular data. I design RAG pipelines, LLM agents and deep learning models, and I build my solutions end to end, from the model to web, desktop and mobile apps.", "7": "See my projects →", "8": "Contact me", "12": "AI, data, web, mobile and embedded projects", "13": "internships in generative AI and software", "14": "best accuracy (sign language)", "15": "ESPRIT 2024 projects with AzulTunes", "16": "Internships", "17": "June – August 2026", "18": "AI Engineering Intern, RAG &amp; Generative AI", "19": "Sotetel · Telecom RAG Assistant", "20": "Conversational assistant for network and fiber-optic documentation: extraction, structuring and indexing of unstructured PDFs in ChromaDB.", "21": "Local LLM inference with Ollama (Llama 3, qwen2.5:3b), answers with their cited sources, and off-topic questions declined.", "22": "Voice dictation and spoken answers, conversation history, employee profiles, light and dark mode.", "23": "Usage dashboard: conversations, RAG queries, breakdown by telecom domain and document type.", "30": "1.5 months", "31": "Software &amp; AI Development Intern", "33": "Web application for complaint management with generative AI (Gemini) and an Oracle database.", "36": "Generative AI", "37": "All", "38": "AI &amp; data science", "40": "Health", "43": "Embedded", "44": "Medical imaging · Multimodal AI · XAI", "45": "In progress", "47": "Multi-agent decision-support system for breast imaging (BCMID dataset), powered by multimodal data: medical images and reports. An orchestrator coordinates specialized agents (vision, RAG, evidence, quality control) up to an explainable report.", "48": "Upstream: data cleaning, quality control and anonymization, detection of acquisition bias. Fine-tuned ResNet18 with patient-grouped cross-validation and Grad-CAM explanations.", "49": "Images + reports", "50": "Orchestrator", "51": "Vision agent · ResNet18", "52": "RAG agent · BGE + FAISS", "53": "Evidence assembly", "54": "Quality &amp; safety control", "55": "Report via n8n", "56": "Multimodal data", "57": "Multi-agent", "62": "← scroll · 15 screens", "63": "Agritech · IoT · Project lead", "64": "Mobile app", "66": "Precision agriculture mobile app in three languages (FR, EN, AR) with two themes. Six AI modules analyze photos, sensors and climate data, with history and health trends per animal and per plant.", "67": "Plant and livestock diseases from photos", "68": "Fruit quality (good, mixed, bad)", "69": "Crop and fertilizer recommendation", "70": "Irrigation: GPS and ESP8266 IoT sensor", "71": "Milk yield + Llama 3.3 advice via Groq", "72": "Journal, scans and health per animal", "73": "Crops · Random Forest", "74": "Leaf diseases · MobileNetV2", "75": "Livestock health · EfficientNetB0", "78": "Oncology · Streamlit", "79": "Educational tool", "81": "Cancer risk awareness tool with two complementary approaches and a downloadable PDF report.", "82": "Conversational questionnaire on risk factors", "83": "Predicted cancer type, risk level and recommendations", "84": "Image analysis by organ: colon (histopathology), breast (EfficientNetV2B3)", "85": "Confidence and per-class probabilities", "91": "Tourism · Web", "94": "Web platform promoting tourism in Tunisia: events, hotel and restaurant offers, travel blogs and AI chatbots, with strong protection of user data.", "95": "Encrypted accounts, email verification", "96": "Event tickets with QR code and SMS confirmation", "97": "Offer recommendations and venue map", "98": "Blogs with ratings, comments and profanity filter", "99": "Downloadable partnership contracts", "100": "AzulBot: AI chatbot and complaint support", "104": "AI chatbot", "107": "▶ Watch the presentation video ↗", "108": "Vision · Real time", "109": "Sign language recognition", "110": "Live translation from the webcam with MediaPipe: static mode for letters A to Z, dynamic mode for gestures (please, thank you, yes, no…). Recognized words build up on screen.", "111": "MLP · letters", "112": "LSTM · gestures", "117": "Logistics · Streamlit", "118": "150,000+ couriers", "120": "Delivery management in three tabs: regression of pending orders, KNN classification of high-value orders, stress-zone clustering with anomaly detection, simulation and CSV export.", "127": "HR · Team project", "130": "Human resources management solution, as a JavaFX desktop app and a Symfony web platform, to automate and centralize HR processes.", "131": "Events: countdown, filters, map and weather", "132": "AI-generated event descriptions", "133": "Stripe payment and PDF tickets with barcode", "134": "Complaints: sentiment analysis, voice dictation, translation", "135": "Job offers, applications and Google Meet interviews", "136": "Missions, transport and employee dashboard", "145": "CRM dashboard", "146": "Four-page interactive report: overview, sales trends (map, products, clients), conversions by product and quarter, team performance. 10.01M in revenue and a 63.15% conversion rate analyzed.", "149": "Multi-agent BI system", "150": "Automates the BI pipeline from multiple sources through to dashboard generation.", "151": "Cleaning", "154": "LLM agents", "155": "Optimization · Streamlit", "157": "Electric vehicle routing with capacity and battery constraints, depot, satellites and charging stations, solved with ant colony optimization and shown as a graph.", "161": "Sport · Prediction", "163": "Group-stage prediction app: 48 teams, 12 groups, 68 predicted scores combined with real results to compute standings and qualified teams.", "165": "Desktop · Jewelry store", "167": "Desktop app for jewelry store management: employees, jewelry, clients, suppliers and complaints. Illustrated catalog with a QR code per item, emailing, statistics and PDF export.", "171": "Mobile · Delivery", "173": "Mobile app for ordering and delivering meals: restaurants filtered by cuisine and opening hours, dish details with optional ingredients, cart, notifications and Google or Facebook sign-up.", "177": "Embedded systems · Proteus", "179": "Smart parking", "180": "<b>Problem:</b> count parked vehicles accurately, simplify booking and payment, and improve space management and traffic flow in the parking lot.", "181": "Idle: “Welcome” message and temperature", "182": "Storage of the number of free spaces", "183": "Automatic lighting based on brightness", "184": "Booking confirmed by inserting coins", "185": "Automatic cancellation after 10 s without confirmation", "186": "Exit by scanning the ticket's QR code", "187": "Display of the number of parked cars", "188": "Embedded C", "193": "Accessibility · Real time", "195": "Assistant for visually impaired people: obstacle detection, text reading and scene description, delivered by voice.", "199": "Voice", "200": "Tech stack", "201": "Degrees · Certifications · Languages", "202": "Engineering degree in Data Science &amp; AI", "203": "ESPRIT, Tunisia · 2022 – 2027", "204": "Final year. Baccalaureate in Experimental Sciences, 2022.", "206": "<b>NVIDIA DLI</b>: deep learning, NLP, generative AI, LLM applications, anomaly detection", "207": "<b>MASSAI Summer School 2026</b>: generative AI, LLMs and AI agents", "209": "Languages", "210": "Arabic", "211": "native", "212": "French", "214": "English", "215": "Turkish", "217": "I am looking for a 6-month final-year internship starting January 2027, in machine learning, computer vision or generative AI.", "220": "Copy", "221": "Phone", "224": "Location", "225": "Ariana, Tunisia", "226": "← Prev", "227": "Next →", "228": "Close", "900": "Let's work<br>together<span>.</span>"};
+EN[6]="Final-year engineering student in Data Science &amp; AI at ESPRIT. Passionate about machine learning, computer vision and generative AI, with hands-on experience in RAG pipelines, LLM agents and vision models. I work with any type of data and build my solutions end to end, from the model to web, desktop and mobile apps.";
+EN[902]="HR management platform as a Symfony web app and a JavaFX desktop app: job offers, applications, interviews, missions and transport. The events module includes a map, weather, Stripe payment and AI-generated descriptions. Complaints are analyzed automatically (sentiment, voice dictation, translation).";
+EN[901]="Smart parking system that counts parked cars and displays free spaces and the temperature. Bookings are confirmed by inserting coins, with automatic cancellation after 10 seconds. Cars exit by scanning the ticket's QR code, and the lighting adapts to the ambient brightness.";
+function setLang(l){LANG=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(el=>{if(el.dataset.fr===undefined)el.dataset.fr=el.innerHTML;el.innerHTML=(l==='en'&&EN[el.dataset.i]!==undefined)?EN[el.dataset.i]:el.dataset.fr});
+  document.querySelectorAll('[data-ten]').forEach(a=>{const t=l==='en'?a.dataset.ten:a.dataset.tfr;a.title=t;a.setAttribute('aria-label',t)});
+  roles=ROLES[l];const t=document.getElementById('typed');if(t)t.textContent=roles[0];
+  if(typeof renderSkills==='function')renderSkills();
+  const lb=document.getElementById('langBtn');lb.textContent=l==='en'?'FR':'EN';lb.setAttribute('aria-label',l==='en'?'Passer en français':'Switch to English');
+  try{localStorage.setItem('lang',l)}catch(e){}}
+const src=(k,i)=>`img/${k}-${String(i+1).padStart(2,'0')}.jpg`;
+
+/* fill covers, thumbs, phone strips */
+document.querySelectorAll('.shot[data-g]').forEach(b=>{const k=b.dataset.g,g=G[k];
+  b.setAttribute('aria-label',`Ouvrir la galerie ${g.t}`);
+  const start=k==='yummy'?3:0;b.dataset.start=start;
+  b.innerHTML=`<img src="${src(k,start)}" alt="${g.c[start]}" loading="lazy">`+(g.n>1?`<span class="count"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg> ${g.n}</span>`:'');});
+document.querySelectorAll('.thumbs[data-g]').forEach(d=>{const k=d.dataset.g,g=G[k],show=Math.min(4,g.n);
+  d.innerHTML=Array.from({length:show},(_,i)=>`<button data-g="${k}" data-start="${i}" aria-label="${g.c[i]}"><img src="${src(k,i)}" alt="${g.c[i]}" loading="lazy">${i===3&&g.n>4?`<span class="plus">+${g.n-4}</span>`:''}</button>`).join('');
+  if(show===1)d.style.maxWidth='300px',d.style.gridTemplateColumns='1fr';});
+document.querySelectorAll('.phones[data-g]').forEach(p=>{const k=p.dataset.g,g=G[k];const order=[9,0,10,4,2,6,8,5,12,13,1,3,7,11,14];
+  p.querySelector('.track').innerHTML=order.map(i=>`<button data-g="${k}" data-start="${i}" aria-label="${g.c[i]}"><img src="${src(k,i)}" alt="${g.c[i]}" loading="lazy"></button>`).join('');});
+
+/* lightbox */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap'),lbDots=document.getElementById('lbDots'),prev=document.getElementById('lbPrev'),next=document.getElementById('lbNext');
+let gk=null,gi=0;
+function show(){const g=G[gk],cc=(LANG==='en'&&GE[gk])?GE[gk]:g.c,tt=(LANG==='en'&&GT[gk])||g.t;lbImg.src=src(gk,gi);lbImg.alt=cc[gi];
+  lbCap.innerHTML=`<b>${tt}</b> · ${cc[gi]}${g.n>1?`  ·  ${gi+1}/${g.n}`:''}`;
+  lbDots.innerHTML=g.n>1?Array.from({length:g.n},(_,i)=>`<i class="${i===gi?'on':''}"></i>`).join(''):'';
+  prev.hidden=next.hidden=g.n<2;
+  if(g.n>1){const im=new Image();im.src=src(gk,(gi+1)%g.n)}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-g][data-start]');if(!b||b.closest('dialog'))return;
+  gk=b.dataset.g;gi=+b.dataset.start||0;show();try{lb.showModal()}catch(_){lb.setAttribute('open','')}});
+const go=d=>{const n=G[gk].n;gi=(gi+d+n)%n;show()};
+prev.onclick=()=>go(-1);next.onclick=()=>go(1);
+document.getElementById('lbClose').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+addEventListener('keydown',e=>{if(!lb.open)return;if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+let tx=null;lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(dx<0?1:-1);tx=null});
+
+/* theme */
+const themeBtn=document.getElementById('themeBtn');
+const isDark=()=>{const t=document.documentElement.dataset.theme;return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches};
+try{const s=localStorage.getItem('theme');if(s)document.documentElement.dataset.theme=s}catch(e){}
+themeBtn.addEventListener('click',()=>{const n=isDark()?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+
+/* nav */
+const nav=document.getElementById('nav');
+const links=[...document.querySelectorAll('.nav ul a')];
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+const secObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>secObs.observe(s));
+
+/* typing */
+const ROLES={fr:['Ingénieure Data Science & IA','Vision par ordinateur','IA générative · RAG · agents LLM','Deep learning · PyTorch','Développement de bout en bout','Applications web & mobiles'],en:['Data Science & AI Engineer','Computer vision','Generative AI · RAG · LLM agents','Deep learning · PyTorch','End-to-end development','Web & mobile apps']};
+let roles=ROLES.fr;
+const typed=document.getElementById('typed');
+if(!reduce){let r=0,i=roles[0].length,del=true;
+  (function tick(){
+    if(del){i--;if(i<=0){del=false;r=(r+1)%roles.length}}
+    else{i++;if(i>=roles[r].length){del=true;typed.textContent=roles[r];return setTimeout(tick,2200)}}
+    typed.textContent=roles[r].slice(0,Math.max(i,0));setTimeout(tick,del?28:55)})();}
+
+/* avatar / real photo reveal */
+
+/* detection box */
+const bbox=document.getElementById('bbox'),lab=document.getElementById('bboxLabel'),fps=document.getElementById('fps');
+const labels=['ingénieure_ia','data_scientist','ml_engineer'];
+let li=0;
+if(!reduce)setInterval(()=>{li=(li+1)%labels.length;
+  lab.textContent=(LANG==='en'?['ai_engineer','data_scientist','ml_engineer']:labels)[li]+' '+(0.95+Math.random()*0.04).toFixed(2);
+  fps.textContent=(9+Math.round(Math.random()*6))+' ms';},2600);
+
+/* skills */
+const skills={
+ 'ML / Deep learning':['Scikit-learn','XGBoost','LightGBM','CatBoost','Random Forest','KNN','SVM','ANN','RNN','LSTM','GRU','Transformers','PyTorch','ResNet18'],
+ 'Vision par ordinateur':['OpenCV','YOLOv8','MediaPipe','MiDaS','MobileNetV2','EfficientNet','EasyOCR','BLIP','Grad-CAM'],
+ 'NLP & IA générative':['RAG','LLMs','LangChain','LangGraph','Hugging Face','Ollama','Llama 3','Groq','Gemini','Embeddings BGE','FAISS','ChromaDB','Multi-agents','Prompt engineering'],
+ 'MLOps & DevOps':['MLOps','CI/CD','Git','n8n'],
+ 'Data viz & BI':['Power BI','Plotly','Streamlit','Matplotlib','Seaborn','Excel'],
+ 'Data & bases de données':['SQL','R','Pandas','NumPy','Big Data','PostgreSQL','MySQL','MongoDB','Oracle'],
+ 'Programmation':['Python','Java','C','C++','C#','.NET','PHP','JavaScript'],
+ 'Web, desktop, mobile & embarqué':['HTML / CSS','Symfony','Spring Boot','JavaFX','Qt Designer','FlutterFlow','Stripe','PIC16F877','Proteus','ESP8266']};
+const esc=s=>s.replace(/&/g,'&amp;');
+const SKH={'Vision par ordinateur':'Computer vision','NLP & IA générative':'NLP & generative AI','Data & bases de données':'Data & databases','Programmation':'Programming','Web, desktop, mobile & embarqué':'Web, desktop, mobile & embedded'};
+function renderSkills(){document.getElementById('skills').innerHTML=Object.entries(skills).map(([k,v])=>`<div class="skill"><h3>${esc(LANG==='en'&&SKH[k]||k)}</h3><div class="pills">${v.map(s=>`<span class="pill">${esc(s)}</span>`).join('')}</div></div>`).join('')}
+renderSkills();
+
+document.querySelectorAll('.dots6').forEach(d=>{const n=+d.dataset.n;d.innerHTML=Array.from({length:6},(_,i)=>`<i class="${i<n?'on':''}"></i>`).join('')});
+
+/* filters with counts */
+const chips=[...document.querySelectorAll('.chip')],cards=[...document.querySelectorAll('#grid .card')];
+chips.forEach(c=>{const f=c.dataset.f;const n=f==='all'?cards.length:cards.filter(x=>x.dataset.cat.split(' ').includes(f)).length;c.insertAdjacentHTML('beforeend',`<sup>${n}</sup>`)});
+const fill=el=>el.querySelectorAll('.bar i').forEach(i=>i.style.width=i.dataset.w+'%');
+chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>x.setAttribute('aria-pressed',x===c));const f=c.dataset.f;
+  cards.forEach(card=>{const s=f==='all'||card.dataset.cat.split(' ').includes(f);card.classList.toggle('hide',!s);if(s){card.classList.remove('pending');fill(card)}})}));
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pending');fill(e.target);io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>{const r=el.getBoundingClientRect();if(reduce||r.top<innerHeight){fill(el)}else{el.classList.add('pending');io.observe(el)}});
+
+/* copy */
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const done=()=>{b.textContent=LANG==='en'?'Copied':'Copié';setTimeout(()=>b.textContent=LANG==='en'?'Copy':'Copier',1600)};
+  const sel=()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling);s.removeAllRanges();s.addRange(r);b.textContent=LANG==='en'?'Selected':'Sélectionné'};
+  try{navigator.clipboard.writeText(b.dataset.copy).then(done,sel)}catch(e){sel()}}));
+
+/* language */
+document.getElementById('langBtn').addEventListener('click',()=>setLang(LANG==='en'?'fr':'en'));
+{let l='fr';try{l=localStorage.getItem('lang')||'fr'}catch(e){} if(location.hash==='#en')l='en'; if(l==='en')setLang('en');}
+
+/* embedding field */
+(function(){const cv=document.getElementById('field'),ctx=cv.getContext('2d');let W,H,pts=[],dpr=Math.min(devicePixelRatio||1,2);
+  const col=()=>getComputedStyle(document.documentElement).getPropertyValue('--box').trim()||'#E8649A';
+  function size(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.round(Math.min(70,W*H/14000));pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,c:Math.random()<.3}))}
+  let mx=-999,my=-999;cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+  function draw(){const c=col();ctx.clearRect(0,0,W,H);
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);if(d<120&&d>0){p.x+=dx/d*.6;p.y+=dy/d*.6}}
+    ctx.strokeStyle=c;ctx.fillStyle=c;
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<110){ctx.globalAlpha=(1-d/110)*.35;ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}
+    for(const p of pts){ctx.globalAlpha=p.c?.9:.5;ctx.beginPath();ctx.arc(p.x,p.y,p.c?2.6:1.6,0,7);ctx.fill()}
+    ctx.globalAlpha=1;if(!reduce)requestAnimationFrame(draw)}
+  size();addEventListener('resize',size);draw();})();
+</script>
+
+</body>
+</html>
